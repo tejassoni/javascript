@@ -1,7 +1,7 @@
 // var , let and const defined with same variable names to check if it is allowed in javascript or not
 var test1; // can not define same test1 variable as let , var or const
-//let test1; // can not define same test1 variable as let , var or const
-//const test1 = 0; // can not define same test1 variable as let , var or const
+let test1; // can not define same test1 variable as let , var or const
+const test1 = 0; // can not define same test1 variable as let , var or const
 console.log(test1); // Uncaught SyntaxError: Identifier 'test1' has already been declared
 
 // var , let and const defined and check if it is updated or re declare within scope
@@ -70,6 +70,14 @@ function defineConstant()
 }
 defineConstant(); // function calls
 console.log("const Demo : ", Demo) // Output: 0
+
+
+var testUndefine1 = undefined; // initilized with
+let testUndefine2 = undefined;
+const Demo2;
+console.log('var testUndefine1 initilize with testUndefine1 : ', testUndefine1) // Output: "undefined"
+console.log('let testUndefine2 initilize with testUndefine2 : ', testUndefine2) // Output: "undefined"
+console.log('const Demo2 initilize without assign value : ', Demo2) // Output: Uncaught SyntaxError: Missing initializer in const declaration
 
 
 
