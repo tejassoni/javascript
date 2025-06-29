@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Get User input Values</title>
+    </head>
+
+    <body>
+        <div class="user-input">
+            <h3>
+                <center>User input Values</center>
+            </h3>
+
+            <input type="text" name="name" id="name" class="name" value="Tejas Soni" />
+            <!-- text , email -->
+            <input type="email" name="email" id="email" class="email" value="tejas.soni@yopmail.com" />
+            <!-- number , mobile -->
+            <input type="number" name="mobile" id="mobile" class="mobile" value="9900990099" />
+            <!-- TextArea , address -->
+            <textarea name="address" id="address" class="address">Vadodara, Gujarat</textarea>
+            <!-- Radio , gender -->
+            <input type="radio" name="gender" value="male" checked> Male
+            <input type="radio" name="gender" value="female"> Female
+            <!-- Checkbox , Hobbies -->
+            <legend>Hobbies:</legend>
+            <div>
+                <input type="checkbox" class="hobby" name="hobby" value="reading" checked>
+                <label for="reading">Reading</label>
+            </div>
+            <div>
+                <input type="checkbox" class="hobby" name="hobby" value="writing" checked>
+                <label for="writing">Writing</label>
+            </div>
+            <div>
+                <input type="checkbox" class="hobby" name="hobby" value="traveling">
+                <label for="traveling">Traveling</label>
+            </div>
+        </div>
+        <script src="get-input-index.js"></script>
+    </body>
+</html>
