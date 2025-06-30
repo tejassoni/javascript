@@ -11,6 +11,10 @@ console.log("input number by mobile id :", mobile);
 let address = document.getElementById("address").value;
 console.log("input textarea address by id :", address);
 
+let country = document.getElementById('country').value;
+console.log("input select option country by id :", country);
+
+
 let genderChecked = document.querySelector('input[name="gender"]:checked').value;
 console.log("input radio gender by name for checked :", genderChecked);
 
@@ -42,4 +46,17 @@ hobbyUnChecked.forEach(input =>
   }
 });
 console.log(hobbyUnCheckedValue)
+
+let nameValue = document.querySelector('input[name="name"]').value;
+console.log("input text name by querySelector :", nameValue);
+
+nameValue = document.getElementsByClassName('name');
+console.log("input text name by className :",nameValue[0].value)
+
+email = document.getElementsByClassName('email')[0];
+console.log('input text email by className :',email.value)
+
+nameValue = document.getElementsByName('name')[0];
+console.log(nameValue)
+
 
