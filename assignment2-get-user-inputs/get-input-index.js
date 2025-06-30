@@ -51,12 +51,24 @@ let nameValue = document.querySelector('input[name="name"]').value;
 console.log("input text name by querySelector :", nameValue);
 
 nameValue = document.getElementsByClassName('name');
-console.log("input text name by className :",nameValue[0].value)
+console.log("input text name by className :", nameValue[0].value)
 
 email = document.getElementsByClassName('email')[0];
-console.log('input text email by className :',email.value)
+console.log('input text email by className :', email.value)
 
 nameValue = document.getElementsByName('name')[0];
 console.log(nameValue)
+
+inputs = document.getElementsByTagName('input');
+for (let i = 0; i < inputs.length; i++)
+{
+  console.log("input values", inputs[i].value)
+}
+
+// change text color
+const input = document.getElementById("name");
+input.style.color = "#0066cc";         // Text color
+input.style.backgroundColor = "#f0f0f0"; // Background color
+input.style.fontWeight = "bold";       // Bold text
 
 
