@@ -1,3 +1,12 @@
+/*
+* JavaScript Variables: var, let, and const
+* @author: Tejas Soni
+* @project: Variable Declaration Demonstration
+* @description: This code demonstrates the differences and behaviors of var, let, and const variable declarations in JavaScript, including redeclaration, scope, assignment, and errors, with output samples.
+* @js: JavaScript
+* @version: 1.0
+*/
+
 // var , let and const defined with same variable names to check if it is allowed in javascript or not
 var test1; // can not define same test1 variable as let , var or const
 let test1; // can not define same test1 variable as let , var or const
