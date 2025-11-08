@@ -74,5 +74,5 @@ console.log("3 / '3' =", mix4, "| Type:", typeof mix4); // 1, number
 // output: Type of mix4: number , Value: 1
 
 let mix5 = 'hi' - 'i';
-console.log("'hi' - 'i' =", mix5, "| Type:", typeof mix5); // NaN, number
+console.log("'hi' - 'i' =", mix5, "| Type:", typeof mix5); // NaN, number, not a number
 // output: Type of mix5: number , Value: NaN

@@ -2,11 +2,20 @@
 * JavaScript Non-Primitive (Complex) Data Types
 * @author: Tejas Soni
 * @project: Non-Primitive Data Types Demonstration
-* @description: This code demonstrates non-primitive (complex) data types in JavaScript including Object, Array, and Function, with examples and console logs.
+* @description: Demonstrates JavaScript non-primitive (complex) data types with emphasis on Arrays.
+ * Contains examples for iteration (for, for...of, for...in, forEach), mutation (push, pop, shift, unshift, splice),
+ * accessors and creators (slice, concat, Array.from, Array.of, Array.isArray), functional helpers (map, filter, reduce, find, findIndex, every, some, flat/flatMap),
+ * mutation utilities (sort, reverse, fill, copyWithin), iterators (entries, keys, values), and other common array APIs.
+ * Examples use ES5 and ES6+ syntax where appropriate and are intended for learning/demonstration in browser or Node.js consoles.
 * @js: JavaScript
 * @version: 1.0
 */
 
+
+// What is an Array?
+// An array is a special variable, which can hold more than one value at a time.
+// It is a data structure that can store a collection of items (elements) under a single variable name.
+// Each item in an array has a numeric index, starting from 0 for the first element, 1 for the second element, and so on.
 var arrayExample = [1, 2, 3, 4, 5];
 console.log("Array example: let arrayExample = [1,2,3,4,5];");
 console.log("Type of arrayExample:", typeof arrayExample, ", Value:", arrayExample);
@@ -84,7 +93,7 @@ console.log("After shift():", arrShift); // After shift(): [2, 3, 4, 5, 6]
 
 // shift method
 // removes the first element from an array and returns that removed element. This method changes the length of the array.
-var arrShift = [95,65,26,78,96];
+var arrShift = [95, 65, 26, 78, 96];
 console.log("Original array arrShift :", arrShift);
 arrShift.shift();
 console.log("After shift(): arrShift", arrShift); // output : [65, 26, 78, 96]
@@ -105,7 +114,7 @@ arrSplice.splice(2, 1);
 console.log("After splice(2, 1):", arrSplice); // After splice(2, 1): [2, 5, 9, 7]
 
 // splice method
-var arrSplice = [1,3,4,56,78,3];
+var arrSplice = [1, 3, 4, 56, 78, 3];
 console.log("Original array arrSplice :", arrSplice);
 arrSplice.splice(2, 1);
 console.log("After splice(2, 1):", arrSplice); // output : [1, 3, 56, 78, 3]
@@ -121,18 +130,18 @@ end (optional): Zero-based index before which to end extraction
 Negative index counts back from the end of the array
 If omitted, extracts through the end of the array
 */
-var arrSlice = [3,9,7,5,6,2];
+var arrSlice = [3, 9, 7, 5, 6, 2];
 console.log("Original array arrSlice :", arrSlice);
 var slicedArray = arrSlice.slice(1, 3);
 console.log("Sliced array (1, 3):", slicedArray); // Sliced array (1, 3): [9, 7]
 
-var arrSlice1 = [3,9,7,5,6,2];
+var arrSlice1 = [3, 9, 7, 5, 6, 2];
 console.log("Original array arrSlice1 :", arrSlice1);
 var slicedArray2 = arrSlice1.slice(1);
 console.log("Sliced array (1):", slicedArray2); // Sliced array (1): [9, 7, 5, 6, 2]
 
 
-var arrSlice = [4,5,6,1,2,8,9];
+var arrSlice = [4, 5, 6, 1, 2, 8, 9];
 console.log("Original array arrSlice :", arrSlice);
 var slicedArray = arrSlice.slice(1, 3);
 console.log("Sliced array (1, 3):", slicedArray); // output : [5, 6]
@@ -192,14 +201,16 @@ console.log("Joined date string:", joinedDate); // output : "2024-06-15"
 // map method creates a new array populated with the results of calling a provided function on every element in the calling array.
 var arrMap = [1, 2, 3, 4, 5];
 console.log("Original array arrMap :", arrMap);
-var mappedArray = arrMap.map(function(element) {
+var mappedArray = arrMap.map(function (element)
+{
   return element * 2;
 });
 console.log("Mapped array (elements multiplied by 2):", mappedArray); // output : [2, 4, 6, 8, 10]
 
 var arrMap2 = [10, 20, 30];
 console.log("Original array arrMap2 :", arrMap2);
-var mappedArray2 = arrMap2.map(function(element) {
+var mappedArray2 = arrMap2.map(function (element)
+{
   return element + 5;
 });
 console.log("Mapped array (elements plus 5):", mappedArray2); // output : [15, 25, 35]
@@ -208,7 +219,8 @@ console.log("Mapped array (elements plus 5):", mappedArray2); // output : [15, 2
 // filter method creates a new array with all elements that pass the test implemented by the provided function.
 var arrFilter = [1, 2, 3, 4, 5, 6];
 console.log("Original array arrFilter :", arrFilter);
-var filteredArray = arrFilter.filter(function(element) {
+var filteredArray = arrFilter.filter(function (element)
+{
   return element % 2 === 0; // keep even numbers
 });
 console.log("Filtered array (even numbers):", filteredArray); // output : [2, 4, 6]
@@ -216,14 +228,16 @@ console.log("Filtered array (even numbers):", filteredArray); // output : [2, 4,
 // odd numbers filter
 var arrFilter1 = [1, 2, 3, 4, 5, 6];
 console.log("Original array arrFilter1 :", arrFilter1);
-var filteredArray1 = arrFilter1.filter(function(element) {
+var filteredArray1 = arrFilter1.filter(function (element)
+{
   return element % 2 !== 0; // keep odd numbers
 });
 console.log("Filtered array (odd numbers):", filteredArray1); // output : [1, 3, 5]
 
 var arrFilter2 = [10, 15, 20, 25, 30];
 console.log("Original array arrFilter2 :", arrFilter2);
-var filteredArray2 = arrFilter2.filter(function(element) {
+var filteredArray2 = arrFilter2.filter(function (element)
+{
   return element > 20; // keep numbers greater than 20
 });
 console.log("Filtered array (numbers > 20):", filteredArray2); // output : [25, 30]
@@ -232,14 +246,16 @@ console.log("Filtered array (numbers > 20):", filteredArray2); // output : [25, 
 // reduce method executes a reducer function (that you provide) on each element of the array, resulting in a single output value.
 var arrReduce = [1, 2, 3, 4, 5];
 console.log("Original array arrReduce :", arrReduce);
-var sum = arrReduce.reduce(function(accumulator, currentValue) {
+var sum = arrReduce.reduce(function (accumulator, currentValue)
+{
   return accumulator + currentValue;
 }, 0);
 console.log("Sum of array elements using reduce():", sum); // output : 15
 
 var arrReduce2 = [10, 20, 30];
 console.log("Original array arrReduce2 :", arrReduce2);
-var product = arrReduce2.reduce(function(accumulator, currentValue) {
+var product = arrReduce2.reduce(function (accumulator, currentValue)
+{
   return accumulator * currentValue;
 }, 1);
 console.log("Product of array elements using reduce():", product); // output : 6000
@@ -248,14 +264,16 @@ console.log("Product of array elements using reduce():", product); // output : 6
 // find method returns the value of the first element in the array that satisfies the provided testing function. Otherwise undefined is returned.
 var arrFind = [5, 12, 8, 130, 44];
 console.log("Original array arrFind :", arrFind);
-var foundElement = arrFind.find(function(element) {
+var foundElement = arrFind.find(function (element)
+{
   return element > 10;
 });
 console.log("First element greater than 10 using find():", foundElement); // output : 12
 
 var arrFind2 = [1, 3, 7, 9, 11];
 console.log("Original array arrFind2 :", arrFind2);
-var foundElement2 = arrFind2.find(function(element) {
+var foundElement2 = arrFind2.find(function (element)
+{
   return element > 10;
 });
 console.log("First element greater than 10 using find():", foundElement2); // output : 11
@@ -263,14 +281,16 @@ console.log("First element greater than 10 using find():", foundElement2); // ou
 // findIndex method returns the index of the first element in the array that satisfies the provided testing function. Otherwise, it returns -1.
 var arrFindIndex = [5, 12, 8, 130, 44];
 console.log("Original array arrFindIndex :", arrFindIndex);
-var foundIndex = arrFindIndex.findIndex(function(element) {
+var foundIndex = arrFindIndex.findIndex(function (element)
+{
   return element > 10;
 });
 console.log("Index of first element greater than 10 using findIndex():", foundIndex); // output : 1
 
 var arrFindIndex2 = [1, 3, 7, 9, 11];
 console.log("Original array arrFindIndex2 :", arrFindIndex2);
-var foundIndex2 = arrFindIndex2.findIndex(function(element) {
+var foundIndex2 = arrFindIndex2.findIndex(function (element)
+{
   return element > 10;
 });
 console.log("Index of first element greater than 10 using findIndex():", foundIndex2); // output : 4  
@@ -279,14 +299,16 @@ console.log("Index of first element greater than 10 using findIndex():", foundIn
 // every method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value.
 var arrEvery = [2, 4, 6, 8, 10];
 console.log("Original array arrEvery :", arrEvery);
-var allEven = arrEvery.every(function(element) {
+var allEven = arrEvery.every(function (element)
+{
   return element % 2 === 0; // check if element is even
 });
 console.log("All elements are even using every():", allEven);
 
 var arrEvery2 = [2, 3, 6, 8, 10];
 console.log("Original array arrEvery2 :", arrEvery2);
-var allEven2 = arrEvery2.every(function(element) {
+var allEven2 = arrEvery2.every(function (element)
+{
   return element % 2 === 0; // check if element is even
 });
 console.log("All elements are even using every():", allEven2); // output : false
@@ -294,7 +316,8 @@ console.log("All elements are even using every():", allEven2); // output : false
 // some method tests whether at least one element in the array passes the test implemented by the provided function. It returns a Boolean value.
 var arrSome = [1, 3, 5, 6, 7];
 console.log("Original array arrSome :", arrSome);
-var hasEven = arrSome.some(function(element) {
+var hasEven = arrSome.some(function (element)
+{
   return element % 2 === 0; // check if element is even
 });
 console.log("At least one even element using some():", hasEven);
@@ -302,7 +325,8 @@ console.log("At least one even element using some():", hasEven);
 // second some example
 var arrSome2 = [1, 3, 5, 7, 9];
 console.log("Original array arrSome2 :", arrSome2);
-var hasEven2 = arrSome2.some(function(element) {
+var hasEven2 = arrSome2.some(function (element)
+{
   return element % 2 === 0; // check if element is even
 });
 console.log("At least one even element using some():", hasEven2); // output : false
@@ -370,14 +394,16 @@ console.log("Flattened array arrFlat2 :", flattenedArray2); // output : [1, 2, 3
 // flatMap method first maps each element using a mapping function, then flattens the result into a new array. It is identical to a map followed by a flat of depth 1.
 var arrFlatMap = [1, 2, 3];
 console.log("Original array arrFlatMap :", arrFlatMap);
-var flatMappedArray = arrFlatMap.flatMap(function(element) {
+var flatMappedArray = arrFlatMap.flatMap(function (element)
+{
   return [element, element * 2];
 });
 console.log("FlatMapped array arrFlatMap :", flatMappedArray); // output : [1, 2, 2, 4, 3, 6]
 
 var arrFlatMap2 = ['a', 'b', 'c'];
 console.log("Original array arrFlatMap2 :", arrFlatMap2);
-var flatMappedArray2 = arrFlatMap2.flatMap(function(element) {
+var flatMappedArray2 = arrFlatMap2.flatMap(function (element)
+{
   return [element.toUpperCase(), element + element];
 });
 console.log("FlatMapped array arrFlatMap2 :", flatMappedArray2); // output : ['A', 'aa', 'B', 'bb', 'C', 'cc']
@@ -387,7 +413,8 @@ console.log("FlatMapped array arrFlatMap2 :", flatMappedArray2); // output : ['A
 var arrEntries = ['a', 'b', 'c'];
 console.log("Original array arrEntries :", arrEntries);
 var iterator = arrEntries.entries();
-for (var pair of iterator) {
+for (var pair of iterator)
+{
   console.log("Index and value using entries():", pair); // output : [index, value]
 }
 // output : [0, 'a']
@@ -398,7 +425,8 @@ for (var pair of iterator) {
 var arrKeys = ['x', 'y', 'z'];
 console.log("Original array arrKeys :", arrKeys);
 var keysIterator = arrKeys.keys();
-for (var key of keysIterator) {
+for (var key of keysIterator)
+{
   console.log("Index using keys():", key); // output : index
 }
 // output : 0
@@ -409,7 +437,8 @@ for (var key of keysIterator) {
 var arrValues = [10, 20, 30];
 console.log("Original array arrValues :", arrValues);
 var valuesIterator = arrValues.values();
-for (var value of valuesIterator) {
+for (var value of valuesIterator)
+{
   console.log("Value using values():", value); // output : value
 }
 // output : 10
