@@ -20,12 +20,46 @@ for (var i = 0; i < arrayExample.length; i++)
 {
   console.log("Loop iteration:", i, "Element at index", i, "is", arrayExample[i]); // Element at index i is arrayExample[i]
 }
+// output : Element at index 0 is 1
+// output : Element at index 1 is 2
+// output : Element at index 2 is 3
+// output : Element at index 3 is 4
+// output : Element at index 4 is 5
 
 // Accessing elements using forEach
 arrayExample.forEach(function (element, index)
 {
   console.log("forEach iteration:", index, "Element at index", index, "is", element); // Element at index index is element
 });
+// output : Element at index 0 is 1
+// output : Element at index 1 is 2
+// output : Element at index 2 is 3
+// output : Element at index 3 is 4
+// output : Element at index 4 is 5
+
+// for...of (iteration construct) — iterate values
+// The for...of statement creates a loop iterating over iterable objects, including Arrays, Strings, Maps, NodeLists, and more.
+for (var value of arrayExample)
+{
+  console.log("for...of iteration: Element value is", value); // Element value is value
+}
+// output : Element value is 1
+// output : Element value is 2
+// output : Element value is 3
+// output : Element value is 4
+// output : Element value is 5
+
+// for...in (iteration construct) — iterate keys
+// The for...in statement iterates over all enumerable properties of an object that are keyed by strings (ignoring ones keyed by Symbols), including inherited enumerable properties.
+for (var index in arrayExample)
+{
+  console.log("for...in iteration: Element at index", index, "is", arrayExample[index]); // Element at index index is arrayExample[index]
+}
+// output : Element at index 0 is 1
+// output : Element at index 1 is 2
+// output : Element at index 2 is 3
+// output : Element at index 3 is 4
+// output : Element at index 4 is 5
 
 // Demonstrating array methods
 console.log("Array methods demonstration:");
@@ -315,3 +349,100 @@ var arrCopyWithin = [1, 2, 3, 4, 5];
 console.log("Original array arrCopyWithin :", arrCopyWithin);
 arrCopyWithin.copyWithin(0, 3);
 console.log("Modified array arrCopyWithin :", arrCopyWithin); // output : [4, 5, 3, 4, 5]
+
+var arrCopyWithin2 = ['a', 'b', 'c', 'd', 'e'];
+console.log("Original array arrCopyWithin2 :", arrCopyWithin2);
+arrCopyWithin2.copyWithin(1, 2, 4);
+console.log("Modified array arrCopyWithin2 :", arrCopyWithin2); // output : ['a', 'c', 'd', 'd', 'e']
+
+// flat / flatMap — flatten nested arrays (map+flatten)
+// flat method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.
+var arrFlat = [1, 2, [3, 4], [5, 6]];
+console.log("Original array arrFlat :", arrFlat);
+var flattenedArray = arrFlat.flat();
+console.log("Flattened array arrFlat :", flattenedArray); // output : [1, 2, 3, 4, 5, 6]
+
+var arrFlat2 = [1, 2, [3, [4, 5]]];
+console.log("Original array arrFlat2 :", arrFlat2);
+var flattenedArray2 = arrFlat2.flat(2);
+console.log("Flattened array arrFlat2 :", flattenedArray2); // output : [1, 2, 3, 4, 5]
+
+// flatMap method first maps each element using a mapping function, then flattens the result into a new array. It is identical to a map followed by a flat of depth 1.
+var arrFlatMap = [1, 2, 3];
+console.log("Original array arrFlatMap :", arrFlatMap);
+var flatMappedArray = arrFlatMap.flatMap(function(element) {
+  return [element, element * 2];
+});
+console.log("FlatMapped array arrFlatMap :", flatMappedArray); // output : [1, 2, 2, 4, 3, 6]
+
+var arrFlatMap2 = ['a', 'b', 'c'];
+console.log("Original array arrFlatMap2 :", arrFlatMap2);
+var flatMappedArray2 = arrFlatMap2.flatMap(function(element) {
+  return [element.toUpperCase(), element + element];
+});
+console.log("FlatMapped array arrFlatMap2 :", flatMappedArray2); // output : ['A', 'aa', 'B', 'bb', 'C', 'cc']
+
+// entries / keys / values — iterators for [index,value], keys, or values
+// entries method returns a new Array Iterator object that contains the key/value pairs for each index in the array.
+var arrEntries = ['a', 'b', 'c'];
+console.log("Original array arrEntries :", arrEntries);
+var iterator = arrEntries.entries();
+for (var pair of iterator) {
+  console.log("Index and value using entries():", pair); // output : [index, value]
+}
+// output : [0, 'a']
+// output : [1, 'b']
+// output : [2, 'c']
+
+// keys method returns a new Array Iterator that contains the keys for each index in the array.
+var arrKeys = ['x', 'y', 'z'];
+console.log("Original array arrKeys :", arrKeys);
+var keysIterator = arrKeys.keys();
+for (var key of keysIterator) {
+  console.log("Index using keys():", key); // output : index
+}
+// output : 0
+// output : 1
+// output : 2
+
+// values method returns a new Array Iterator object that contains the values for each index in the array.
+var arrValues = [10, 20, 30];
+console.log("Original array arrValues :", arrValues);
+var valuesIterator = arrValues.values();
+for (var value of valuesIterator) {
+  console.log("Value using values():", value); // output : value
+}
+// output : 10
+// output : 20
+// output : 30
+
+//Array.from / Array.of / Array.isArray — static helpers
+// Array.from method creates a new, shallow-copied Array instance from an array-like or iterable object.
+var str = "hello";
+console.log("Original string str :", str);
+var arrFrom = Array.from(str);
+console.log("Array created from string using Array.from():", arrFrom); // output : ['h', 'e', 'l', 'l', 'o']
+
+var set = [1, 2, 3];
+console.log("Original Set set :", set);
+var arrFromSet = Array.from(set);
+console.log("Array created from Set using Array.from():", arrFromSet); // output : [1, 2, 3]
+
+// Array.of method creates a new Array instance with a variable number of arguments, regardless of number or type of the arguments.
+var arrOf = Array.of(1, 2, 3, 4, 5);
+console.log("Array created using Array.of():", arrOf); // output : [1, 2, 3, 4, 5]
+
+var arrOfStrings = Array.of('a', 'b', 'c');
+console.log("Array created using Array.of() with strings:", arrOfStrings); // output : ['a', 'b', 'c']
+
+// Array.isArray method determines whether the passed value is an Array.
+var arrCheck = [1, 2, 3];
+console.log("Original array arrCheck :", arrCheck);
+var isArray = Array.isArray(arrCheck);
+console.log("Is arrCheck an array using Array.isArray():", isArray); // output : true
+
+var notArray = { a: 1, b: 2 };
+console.log("Original object notArray :", notArray);
+var isNotArray = Array.isArray(notArray);
+console.log("Is notArray an array using Array.isArray():", isNotArray); // output : false
+
