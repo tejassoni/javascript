@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>JavaScript Defer and Async Demonstration</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Defer and Async Demonstration</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Note script js will always placed after css loaded -->
+    <!-- Case : 1 : Without defer or async -->
+    <!-- <script src="defer-async-index.js"></script> -->
+    <!-- Case : 1 : Description : It will download first html file then fetch then style then script and then again excutes parsing html
+     in this case style and script loading will block parsing of html this leads error on button click events of script because buttons html are not ready -->
 
-    <body>
-        <div class="user-input">
-            <h3>
-                <center>JavaScript Defer and Async Demonstration</center>
-            </h3>
+    <!-- Case : 2 : With defer -->
+    <!-- <script src="defer-async-index.js"></script> -->
+    <!-- Case : 2 : Description : It will download first html file then fetch then style then script but it will excutes script only after complete parsing of html
+     in this case style loading will block parsing of html but script will not block parsing of html because script will excutes after complete parsing of html so no error on button click events of script because buttons html are ready -->
+    <script src="defer-async-index.js" defer></script>
 
-        </div>
-        <script src="defer-async-index.js"></script>
-    </body>
+    <!-- Case : 3 : With async -->
+    <!-- <script src="defer-async-index.js"></script> -->
+    <!-- Case : 3 : Description : It will download first html file then fetch then style then script but it will excutes script as soon as it is downloaded without waiting for complete parsing of html
+     in this case style loading will block parsing of html but script will not block parsing of html because script will excutes as soon as it is downloaded
+     Sometimes there are some script that not depend on html code this standalone scripts we can load earlier
+     async tells browser to load scripts as earlier as possible -->
+    <script src="defer-async-index.js" async></script>
+
+    <script> <!-- here defer / async does not block HTML parsing it is part of html parsing -->
+        // Note : Only one case should be uncommented at a time to see the effect of that case
+        console.log("HTML Parsing Started");
+    </script>
+</head>
+
+<body>
+    <div class="user-input">
+        <h3>
+            <center>JavaScript Defer and Async Demonstration</center>
+        </h3>
+
+    </div>
+</body>
+
 </html>
