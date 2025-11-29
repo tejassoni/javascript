@@ -1,11 +1,11 @@
 /*
-* JavaScript Non-Primitive (Complex) Data Types
-* @author: Tejas Soni
-* @project: Non-Primitive Data Types Demonstration
-* @description: This code demonstrates non-primitive (complex) data types in JavaScript including Object, Array, and Function, with examples and console logs.
-* @js: JavaScript
-* @version: 1.0
-*/
+ * JavaScript Non-Primitive (Complex) Data Types
+ * @author: Tejas Soni
+ * @project: Non-Primitive Data Types Demonstration
+ * @description: This code demonstrates non-primitive (complex) data types in JavaScript including Object, Array, and Function, with examples and console logs.
+ * @js: JavaScript
+ * @version: 1.0
+ */
 
 // None Primitive / Complex Data Types Examples
 
@@ -30,10 +30,19 @@ console.log("Object using new Object():", objConstructor);
 // output: Type of objConstructor: object , Value: { a: 1, b: 2 }
 
 // 3. Using Object.create()
-let proto = { greet: function() { return "Hello"; } };
+let proto = {
+  greet: function () {
+    return "Hello";
+  },
+};
 let objCreate = Object.create(proto);
 objCreate.a = 1;
-console.log("Object using Object.create():", objCreate, ", greet():", objCreate.greet());
+console.log(
+  "Object using Object.create():",
+  objCreate,
+  ", greet():",
+  objCreate.greet()
+);
 // output: Type of objCreate: object , Value: { a: 1, __proto__: { greet: [Function: greet] } }
 
 // Array
@@ -44,9 +53,11 @@ console.log("Type of numbers:", typeof numbers, ", Value:", numbers);
 
 // Function
 function greet(name) {
-	return "Hello, " + name + "!";
+  return "Hello, " + name + "!";
 }
-console.log("Function example: function greet(name) { return 'Hello, ' + name + '!'; }");
+console.log(
+  "Function example: function greet(name) { return 'Hello, ' + name + '!'; }"
+);
 console.log("Type of greet:", typeof greet, ", Value:", greet("Bob"));
 // output: Type of greet: function , Value: Hello, Bob!
 

@@ -1,16 +1,15 @@
 /*
-* JavaScript Non-Primitive (Complex) Data Types
-* @author: Tejas Soni
-* @project: Non-Primitive Data Types Demonstration
-* @description: Demonstrates JavaScript non-primitive (complex) data types with emphasis on Arrays.
+ * JavaScript Non-Primitive (Complex) Data Types
+ * @author: Tejas Soni
+ * @project: Non-Primitive Data Types Demonstration
+ * @description: Demonstrates JavaScript non-primitive (complex) data types with emphasis on Arrays.
  * Contains examples for iteration (for, for...of, for...in, forEach), mutation (push, pop, shift, unshift, splice),
  * accessors and creators (slice, concat, Array.from, Array.of, Array.isArray), functional helpers (map, filter, reduce, find, findIndex, every, some, flat/flatMap),
  * mutation utilities (sort, reverse, fill, copyWithin), iterators (entries, keys, values), and other common array APIs.
  * Examples use ES5 and ES6+ syntax where appropriate and are intended for learning/demonstration in browser or Node.js consoles.
-* @js: JavaScript
-* @version: 1.0
-*/
-
+ * @js: JavaScript
+ * @version: 1.0
+ */
 
 // What is an Array?
 // An array is a special variable, which can hold more than one value at a time.
@@ -18,16 +17,27 @@
 // Each item in an array has a numeric index, starting from 0 for the first element, 1 for the second element, and so on.
 var arrayExample = [1, 2, 3, 4, 5];
 console.log("Array example: let arrayExample = [1,2,3,4,5];");
-console.log("Type of arrayExample:", typeof arrayExample, ", Value:", arrayExample);
+console.log(
+  "Type of arrayExample:",
+  typeof arrayExample,
+  ", Value:",
+  arrayExample
+);
 console.log("Accessing elements by index:"); // Accessing elements by index:
 console.log("First element:", arrayExample[0]); // 1
 console.log("Second element:", arrayExample[1]); // 2
 console.log("Third element:", arrayExample[2]); // 3
 
 // accessing elements using a loop
-for (var i = 0; i < arrayExample.length; i++)
-{
-  console.log("Loop iteration:", i, "Element at index", i, "is", arrayExample[i]); // Element at index i is arrayExample[i]
+for (var i = 0; i < arrayExample.length; i++) {
+  console.log(
+    "Loop iteration:",
+    i,
+    "Element at index",
+    i,
+    "is",
+    arrayExample[i]
+  ); // Element at index i is arrayExample[i]
 }
 // output : Element at index 0 is 1
 // output : Element at index 1 is 2
@@ -36,9 +46,15 @@ for (var i = 0; i < arrayExample.length; i++)
 // output : Element at index 4 is 5
 
 // Accessing elements using forEach
-arrayExample.forEach(function (element, index)
-{
-  console.log("forEach iteration:", index, "Element at index", index, "is", element); // Element at index index is element
+arrayExample.forEach(function (element, index) {
+  console.log(
+    "forEach iteration:",
+    index,
+    "Element at index",
+    index,
+    "is",
+    element
+  ); // Element at index index is element
 });
 // output : Element at index 0 is 1
 // output : Element at index 1 is 2
@@ -48,8 +64,7 @@ arrayExample.forEach(function (element, index)
 
 // for...of (iteration construct) — iterate values
 // The for...of statement creates a loop iterating over iterable objects, including Arrays, Strings, Maps, NodeLists, and more.
-for (var value of arrayExample)
-{
+for (var value of arrayExample) {
   console.log("for...of iteration: Element value is", value); // Element value is value
 }
 // output : Element value is 1
@@ -60,9 +75,13 @@ for (var value of arrayExample)
 
 // for...in (iteration construct) — iterate keys
 // The for...in statement iterates over all enumerable properties of an object that are keyed by strings (ignoring ones keyed by Symbols), including inherited enumerable properties.
-for (var index in arrayExample)
-{
-  console.log("for...in iteration: Element at index", index, "is", arrayExample[index]); // Element at index index is arrayExample[index]
+for (var index in arrayExample) {
+  console.log(
+    "for...in iteration: Element at index",
+    index,
+    "is",
+    arrayExample[index]
+  ); // Element at index index is arrayExample[index]
 }
 // output : Element at index 0 is 1
 // output : Element at index 1 is 2
@@ -140,18 +159,20 @@ console.log("Original array arrSlice1 :", arrSlice1);
 var slicedArray2 = arrSlice1.slice(1);
 console.log("Sliced array (1):", slicedArray2); // Sliced array (1): [9, 7, 5, 6, 2]
 
-
 var arrSlice = [4, 5, 6, 1, 2, 8, 9];
 console.log("Original array arrSlice :", arrSlice);
 var slicedArray = arrSlice.slice(1, 3);
 console.log("Sliced array (1, 3):", slicedArray); // output : [5, 6]
 
-
 // array concat method
 // concat method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
 var arrConcat1 = [1, 2, 3];
 var arrConcat2 = [4, 5, 6];
-console.log("Original arrays arrConcat1 and arrConcat2 :", arrConcat1, arrConcat2);
+console.log(
+  "Original arrays arrConcat1 and arrConcat2 :",
+  arrConcat1,
+  arrConcat2
+);
 var concatenatedArray = arrConcat1.concat(arrConcat2);
 console.log("After concat:", concatenatedArray); // output : [1, 2, 3, 4, 5, 6]
 
@@ -187,30 +208,28 @@ console.log("Array includes 6:", hasSix); // output : false
 
 // array join method
 // join method creates and returns a new string by concatenating all of the elements in an array, separated by commas or a specified separator string.
-var arrJoin = ['Hello', 'world', 'from', 'JavaScript'];
+var arrJoin = ["Hello", "world", "from", "JavaScript"];
 console.log("Original array arrJoin :", arrJoin);
-var joinedString = arrJoin.join(' ');
+var joinedString = arrJoin.join(" ");
 console.log("Joined string:", joinedString); // output : "Hello world from JavaScript"
 
-var arrJoin2 = ['2024', '06', '15'];
+var arrJoin2 = ["2024", "06", "15"];
 console.log("Original array arrJoin2 :", arrJoin2);
-var joinedDate = arrJoin2.join('-');
+var joinedDate = arrJoin2.join("-");
 console.log("Joined date string:", joinedDate); // output : "2024-06-15"
 
 // array map method
 // map method creates a new array populated with the results of calling a provided function on every element in the calling array.
 var arrMap = [1, 2, 3, 4, 5];
 console.log("Original array arrMap :", arrMap);
-var mappedArray = arrMap.map(function (element)
-{
+var mappedArray = arrMap.map(function (element) {
   return element * 2;
 });
 console.log("Mapped array (elements multiplied by 2):", mappedArray); // output : [2, 4, 6, 8, 10]
 
 var arrMap2 = [10, 20, 30];
 console.log("Original array arrMap2 :", arrMap2);
-var mappedArray2 = arrMap2.map(function (element)
-{
+var mappedArray2 = arrMap2.map(function (element) {
   return element + 5;
 });
 console.log("Mapped array (elements plus 5):", mappedArray2); // output : [15, 25, 35]
@@ -219,8 +238,7 @@ console.log("Mapped array (elements plus 5):", mappedArray2); // output : [15, 2
 // filter method creates a new array with all elements that pass the test implemented by the provided function.
 var arrFilter = [1, 2, 3, 4, 5, 6];
 console.log("Original array arrFilter :", arrFilter);
-var filteredArray = arrFilter.filter(function (element)
-{
+var filteredArray = arrFilter.filter(function (element) {
   return element % 2 === 0; // keep even numbers
 });
 console.log("Filtered array (even numbers):", filteredArray); // output : [2, 4, 6]
@@ -228,16 +246,14 @@ console.log("Filtered array (even numbers):", filteredArray); // output : [2, 4,
 // odd numbers filter
 var arrFilter1 = [1, 2, 3, 4, 5, 6];
 console.log("Original array arrFilter1 :", arrFilter1);
-var filteredArray1 = arrFilter1.filter(function (element)
-{
+var filteredArray1 = arrFilter1.filter(function (element) {
   return element % 2 !== 0; // keep odd numbers
 });
 console.log("Filtered array (odd numbers):", filteredArray1); // output : [1, 3, 5]
 
 var arrFilter2 = [10, 15, 20, 25, 30];
 console.log("Original array arrFilter2 :", arrFilter2);
-var filteredArray2 = arrFilter2.filter(function (element)
-{
+var filteredArray2 = arrFilter2.filter(function (element) {
   return element > 20; // keep numbers greater than 20
 });
 console.log("Filtered array (numbers > 20):", filteredArray2); // output : [25, 30]
@@ -246,16 +262,14 @@ console.log("Filtered array (numbers > 20):", filteredArray2); // output : [25, 
 // reduce method executes a reducer function (that you provide) on each element of the array, resulting in a single output value.
 var arrReduce = [1, 2, 3, 4, 5];
 console.log("Original array arrReduce :", arrReduce);
-var sum = arrReduce.reduce(function (accumulator, currentValue)
-{
+var sum = arrReduce.reduce(function (accumulator, currentValue) {
   return accumulator + currentValue;
 }, 0);
 console.log("Sum of array elements using reduce():", sum); // output : 15
 
 var arrReduce2 = [10, 20, 30];
 console.log("Original array arrReduce2 :", arrReduce2);
-var product = arrReduce2.reduce(function (accumulator, currentValue)
-{
+var product = arrReduce2.reduce(function (accumulator, currentValue) {
   return accumulator * currentValue;
 }, 1);
 console.log("Product of array elements using reduce():", product); // output : 6000
@@ -264,16 +278,14 @@ console.log("Product of array elements using reduce():", product); // output : 6
 // find method returns the value of the first element in the array that satisfies the provided testing function. Otherwise undefined is returned.
 var arrFind = [5, 12, 8, 130, 44];
 console.log("Original array arrFind :", arrFind);
-var foundElement = arrFind.find(function (element)
-{
+var foundElement = arrFind.find(function (element) {
   return element > 10;
 });
 console.log("First element greater than 10 using find():", foundElement); // output : 12
 
 var arrFind2 = [1, 3, 7, 9, 11];
 console.log("Original array arrFind2 :", arrFind2);
-var foundElement2 = arrFind2.find(function (element)
-{
+var foundElement2 = arrFind2.find(function (element) {
   return element > 10;
 });
 console.log("First element greater than 10 using find():", foundElement2); // output : 11
@@ -281,34 +293,36 @@ console.log("First element greater than 10 using find():", foundElement2); // ou
 // findIndex method returns the index of the first element in the array that satisfies the provided testing function. Otherwise, it returns -1.
 var arrFindIndex = [5, 12, 8, 130, 44];
 console.log("Original array arrFindIndex :", arrFindIndex);
-var foundIndex = arrFindIndex.findIndex(function (element)
-{
+var foundIndex = arrFindIndex.findIndex(function (element) {
   return element > 10;
 });
-console.log("Index of first element greater than 10 using findIndex():", foundIndex); // output : 1
+console.log(
+  "Index of first element greater than 10 using findIndex():",
+  foundIndex
+); // output : 1
 
 var arrFindIndex2 = [1, 3, 7, 9, 11];
 console.log("Original array arrFindIndex2 :", arrFindIndex2);
-var foundIndex2 = arrFindIndex2.findIndex(function (element)
-{
+var foundIndex2 = arrFindIndex2.findIndex(function (element) {
   return element > 10;
 });
-console.log("Index of first element greater than 10 using findIndex():", foundIndex2); // output : 4  
+console.log(
+  "Index of first element greater than 10 using findIndex():",
+  foundIndex2
+); // output : 4
 
 // every / some — boolean tests over items
 // every method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value.
 var arrEvery = [2, 4, 6, 8, 10];
 console.log("Original array arrEvery :", arrEvery);
-var allEven = arrEvery.every(function (element)
-{
+var allEven = arrEvery.every(function (element) {
   return element % 2 === 0; // check if element is even
 });
 console.log("All elements are even using every():", allEven);
 
 var arrEvery2 = [2, 3, 6, 8, 10];
 console.log("Original array arrEvery2 :", arrEvery2);
-var allEven2 = arrEvery2.every(function (element)
-{
+var allEven2 = arrEvery2.every(function (element) {
   return element % 2 === 0; // check if element is even
 });
 console.log("All elements are even using every():", allEven2); // output : false
@@ -316,8 +330,7 @@ console.log("All elements are even using every():", allEven2); // output : false
 // some method tests whether at least one element in the array passes the test implemented by the provided function. It returns a Boolean value.
 var arrSome = [1, 3, 5, 6, 7];
 console.log("Original array arrSome :", arrSome);
-var hasEven = arrSome.some(function (element)
-{
+var hasEven = arrSome.some(function (element) {
   return element % 2 === 0; // check if element is even
 });
 console.log("At least one even element using some():", hasEven);
@@ -325,8 +338,7 @@ console.log("At least one even element using some():", hasEven);
 // second some example
 var arrSome2 = [1, 3, 5, 7, 9];
 console.log("Original array arrSome2 :", arrSome2);
-var hasEven2 = arrSome2.some(function (element)
-{
+var hasEven2 = arrSome2.some(function (element) {
   return element % 2 === 0; // check if element is even
 });
 console.log("At least one even element using some():", hasEven2); // output : false
@@ -338,7 +350,7 @@ console.log("Original array arrSort :", arrSort);
 arrSort.sort();
 console.log("Sorted array arrSort :", arrSort); // output : [1, 2, 5, 5, 6, 9]
 
-var arrSort2 = ['banana', 'apple', 'cherry', 'date'];
+var arrSort2 = ["banana", "apple", "cherry", "date"];
 console.log("Original array arrSort2 :", arrSort2);
 arrSort2.sort();
 console.log("Sorted array arrSort2 :", arrSort2); // output : ['apple', 'banana', 'cherry', 'date']
@@ -350,7 +362,7 @@ console.log("Original array arrReverse :", arrReverse);
 arrReverse.reverse();
 console.log("Reversed array arrReverse :", arrReverse); // output : [5, 4, 3, 2, 1]
 
-var arrReverse2 = ['one', 'two', 'three', 'four'];
+var arrReverse2 = ["one", "two", "three", "four"];
 console.log("Original array arrReverse2 :", arrReverse2);
 arrReverse2.reverse();
 console.log("Reversed array arrReverse2 :", arrReverse2); // output : ['four', 'three', 'two', 'one']
@@ -362,9 +374,9 @@ console.log("Original array arrFill :", arrFill);
 arrFill.fill(0);
 console.log("Filled array arrFill :", arrFill); // output : [0, 0, 0, 0, 0]
 
-var arrFill2 = ['a', 'b', 'c', 'd'];
+var arrFill2 = ["a", "b", "c", "d"];
 console.log("Original array arrFill2 :", arrFill2);
-arrFill2.fill('z');
+arrFill2.fill("z");
 console.log("Filled array arrFill2 :", arrFill2); // output : ['z', 'z', 'z', 'z']
 
 //copyWithin — copy a sequence inside array
@@ -374,7 +386,7 @@ console.log("Original array arrCopyWithin :", arrCopyWithin);
 arrCopyWithin.copyWithin(0, 3);
 console.log("Modified array arrCopyWithin :", arrCopyWithin); // output : [4, 5, 3, 4, 5]
 
-var arrCopyWithin2 = ['a', 'b', 'c', 'd', 'e'];
+var arrCopyWithin2 = ["a", "b", "c", "d", "e"];
 console.log("Original array arrCopyWithin2 :", arrCopyWithin2);
 arrCopyWithin2.copyWithin(1, 2, 4);
 console.log("Modified array arrCopyWithin2 :", arrCopyWithin2); // output : ['a', 'c', 'd', 'd', 'e']
@@ -394,27 +406,24 @@ console.log("Flattened array arrFlat2 :", flattenedArray2); // output : [1, 2, 3
 // flatMap method first maps each element using a mapping function, then flattens the result into a new array. It is identical to a map followed by a flat of depth 1.
 var arrFlatMap = [1, 2, 3];
 console.log("Original array arrFlatMap :", arrFlatMap);
-var flatMappedArray = arrFlatMap.flatMap(function (element)
-{
+var flatMappedArray = arrFlatMap.flatMap(function (element) {
   return [element, element * 2];
 });
 console.log("FlatMapped array arrFlatMap :", flatMappedArray); // output : [1, 2, 2, 4, 3, 6]
 
-var arrFlatMap2 = ['a', 'b', 'c'];
+var arrFlatMap2 = ["a", "b", "c"];
 console.log("Original array arrFlatMap2 :", arrFlatMap2);
-var flatMappedArray2 = arrFlatMap2.flatMap(function (element)
-{
+var flatMappedArray2 = arrFlatMap2.flatMap(function (element) {
   return [element.toUpperCase(), element + element];
 });
 console.log("FlatMapped array arrFlatMap2 :", flatMappedArray2); // output : ['A', 'aa', 'B', 'bb', 'C', 'cc']
 
 // entries / keys / values — iterators for [index,value], keys, or values
 // entries method returns a new Array Iterator object that contains the key/value pairs for each index in the array.
-var arrEntries = ['a', 'b', 'c'];
+var arrEntries = ["a", "b", "c"];
 console.log("Original array arrEntries :", arrEntries);
 var iterator = arrEntries.entries();
-for (var pair of iterator)
-{
+for (var pair of iterator) {
   console.log("Index and value using entries():", pair); // output : [index, value]
 }
 // output : [0, 'a']
@@ -422,11 +431,10 @@ for (var pair of iterator)
 // output : [2, 'c']
 
 // keys method returns a new Array Iterator that contains the keys for each index in the array.
-var arrKeys = ['x', 'y', 'z'];
+var arrKeys = ["x", "y", "z"];
 console.log("Original array arrKeys :", arrKeys);
 var keysIterator = arrKeys.keys();
-for (var key of keysIterator)
-{
+for (var key of keysIterator) {
   console.log("Index using keys():", key); // output : index
 }
 // output : 0
@@ -437,8 +445,7 @@ for (var key of keysIterator)
 var arrValues = [10, 20, 30];
 console.log("Original array arrValues :", arrValues);
 var valuesIterator = arrValues.values();
-for (var value of valuesIterator)
-{
+for (var value of valuesIterator) {
   console.log("Value using values():", value); // output : value
 }
 // output : 10
@@ -461,7 +468,7 @@ console.log("Array created from Set using Array.from():", arrFromSet); // output
 var arrOf = Array.of(1, 2, 3, 4, 5);
 console.log("Array created using Array.of():", arrOf); // output : [1, 2, 3, 4, 5]
 
-var arrOfStrings = Array.of('a', 'b', 'c');
+var arrOfStrings = Array.of("a", "b", "c");
 console.log("Array created using Array.of() with strings:", arrOfStrings); // output : ['a', 'b', 'c']
 
 // Array.isArray method determines whether the passed value is an Array.
@@ -474,4 +481,3 @@ var notArray = { a: 1, b: 2 };
 console.log("Original object notArray :", notArray);
 var isNotArray = Array.isArray(notArray);
 console.log("Is notArray an array using Array.isArray():", isNotArray); // output : false
-

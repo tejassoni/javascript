@@ -1,11 +1,11 @@
 /*
-* Operators in JavaScript
-* @author: Tejas Soni
-* @project: Operator Demonstration
-* @description: This code demonstrates various operators in JavaScript including arithmetic, assignment, comparison, logical, bitwise, ternary, typeof, instanceof, delete, and void operators.
-* @js: JavaScript
-* @version: 1.0
-*/
+ * Operators in JavaScript
+ * @author: Tejas Soni
+ * @project: Operator Demonstration
+ * @description: This code demonstrates various operators in JavaScript including arithmetic, assignment, comparison, logical, bitwise, ternary, typeof, instanceof, delete, and void operators.
+ * @js: JavaScript
+ * @version: 1.0
+ */
 
 // addition
 let sum = 5 + 10;
@@ -68,38 +68,38 @@ console.log("Result Decrement :", assignedValue);
 // output: Result Decrement : 10
 
 // comparison operators
-let isEqual = (5 == '5');
+let isEqual = 5 == "5";
 console.log("Comparison example: 5 == '5'");
 console.log("Result Comparison == :", isEqual);
 // output: Result Comparison == : true
 
-let isStrictEqual = (5 === '5');
+let isStrictEqual = 5 === "5";
 console.log("Comparison example: 5 === '5'");
 console.log("Result Comparison === :", isStrictEqual);
 // output: Result Comparison === : false
 
-let isNotEqual = (5 != 10);
+let isNotEqual = 5 != 10;
 console.log("Comparison example: 5 != 10");
 console.log("Result Comparison != :", isNotEqual);
 // output: Result Comparison != : true
 
-let isGreater = (10 > 5);
+let isGreater = 10 > 5;
 console.log("Comparison example: 10 > 5");
 console.log("Result Comparison > :", isGreater);
 // output: Result Comparison > : true
 
-let isLessOrEqual = (5 <= 10);
+let isLessOrEqual = 5 <= 10;
 console.log("Comparison example: 5 <= 10");
 console.log("Result Comparison <= :", isLessOrEqual);
 // output: Result Comparison <= : true
 
 // logical operators
-let andResult = (true && false);
+let andResult = true && false;
 console.log("Logical AND example: true && false");
 console.log("Result Logical AND :", andResult);
 // output: Result Logical AND : false
 
-let orResult = (true || false);
+let orResult = true || false;
 console.log("Logical OR example: true || false");
 console.log("Result Logical OR :", orResult);
 // output: Result Logical OR : true
@@ -142,7 +142,7 @@ console.log("Result Right Shift :", rightShift);
 
 // ternary operator
 let age = 18;
-let canVote = (age >= 18) ? "Yes" : "No";
+let canVote = age >= 18 ? "Yes" : "No";
 console.log("Ternary example: (age >= 18) ? 'Yes' : 'No'");
 console.log("Result Ternary :", canVote);
 // output: Result Ternary : Yes
@@ -172,5 +172,3 @@ let voidResult = void 0;
 console.log("Void example: void 0");
 console.log("Result Void :", voidResult);
 // output: Result Void : undefined
-
-

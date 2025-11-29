@@ -1,11 +1,11 @@
 /*
-* JavaScript Object
-* @author: Tejas Soni
-* @project: JavaScript Object Demonstration
-* @description: This code demonstrates the concept of objects in JavaScript, including creation, property access, methods, and nested objects.
-* @js: JavaScript
-* @version: 1.0
-*/
+ * JavaScript Object
+ * @author: Tejas Soni
+ * @project: JavaScript Object Demonstration
+ * @description: This code demonstrates the concept of objects in JavaScript, including creation, property access, methods, and nested objects.
+ * @js: JavaScript
+ * @version: 1.0
+ */
 
 // what is object in javascript?
 // An object is a complex data type that allows you to store collections of data and more complex entities.
@@ -13,22 +13,24 @@
 
 // Creating an object using object literal syntax
 let person = {
-    name: "John Doe",
-    age: 30,
-    isEmployed: true,
-    greet: function() {
-        console.log("Hello, my name is " + this.name);
-    }
+  name: "John Doe",
+  age: 30,
+  isEmployed: true,
+  greet: function () {
+    console.log("Hello, my name is " + this.name);
+  },
 };
 
-console.log("Object example: let person = {name: 'John Doe', age: 30, isEmployed: true, greet: function() {...}};");
+console.log(
+  "Object example: let person = {name: 'John Doe', age: 30, isEmployed: true, greet: function() {...}};"
+);
 console.log("Type of person:", typeof person, ", Value:", person);
 // output: Type of person: object , Value: [object Object]
 
 // Accessing object properties
 console.log("Accessing properties:");
 console.log("Name:", person.name); // John Doe
-console.log("Age:", person.age);   // 30  
+console.log("Age:", person.age); // 30
 console.log("Is Employed:", person.isEmployed); // true
 
 // Calling object method
@@ -40,11 +42,13 @@ let car = new Object();
 car.make = "Toyota";
 car.model = "Camry";
 car.year = 2020;
-car.start = function() {
-    console.log("The car has started.");
+car.start = function () {
+  console.log("The car has started.");
 };
 
-console.log("Object example using Object constructor: let car = new Object(); car.make = 'Toyota'; ...;");
+console.log(
+  "Object example using Object constructor: let car = new Object(); car.make = 'Toyota'; ...;"
+);
 console.log("Type of car:", typeof car, ", Value:", car);
 // output: Type of car: object , Value: [object Object]
 
@@ -60,16 +64,18 @@ car.start(); // The car has started.
 
 // Creating an object using a constructor function
 function Book(title, author, year) {
-    this.title = title;
-    this.author = author;
-    this.year = year;
-    this.getSummary = function() {
-        return `${this.title} was written by ${this.author} in ${this.year}.`;
-    };
+  this.title = title;
+  this.author = author;
+  this.year = year;
+  this.getSummary = function () {
+    return `${this.title} was written by ${this.author} in ${this.year}.`;
+  };
 }
 
 let book1 = new Book("1984", "George Orwell", 1949);
-console.log("Object example using constructor function: let book1 = new Book('1984', 'George Orwell', 1949);");
+console.log(
+  "Object example using constructor function: let book1 = new Book('1984', 'George Orwell', 1949);"
+);
 console.log("Type of book1:", typeof book1, ", Value:", book1);
 // output: Type of book1: object , Value: [object Object]
 
@@ -85,19 +91,21 @@ console.log(book1.getSummary()); // 1984 was written by George Orwell in 1949.
 
 // Creating an object using Object.create()
 let animal = {
-    type: "Mammal",
-    sound: function() {
-        console.log("Animal sound");
-    }
+  type: "Mammal",
+  sound: function () {
+    console.log("Animal sound");
+  },
 };
 
 let dog = Object.create(animal);
 dog.breed = "Labrador";
-dog.sound = function() {
-    console.log("Bark");
+dog.sound = function () {
+  console.log("Bark");
 };
 
-console.log("Object example using Object.create(): let dog = Object.create(animal); dog.breed = 'Labrador'; ...;");
+console.log(
+  "Object example using Object.create(): let dog = Object.create(animal); dog.breed = 'Labrador'; ...;"
+);
 console.log("Type of dog:", typeof dog, ", Value:", dog);
 // output: Type of dog: object , Value: [object Object]
 
@@ -112,16 +120,18 @@ dog.sound(); // Bark
 
 // Demonstrating nested objects
 let company = {
-    name: "Tech Solutions",
-    address: {
-        street: "123 Main St",
-        city: "Metropolis",
-        country: "Fictionland"
-    },
-    employees: 100
+  name: "Tech Solutions",
+  address: {
+    street: "123 Main St",
+    city: "Metropolis",
+    country: "Fictionland",
+  },
+  employees: 100,
 };
 
-console.log("Nested Object example: let company = {name: 'Tech Solutions', address: {...}, employees: 100};");
+console.log(
+  "Nested Object example: let company = {name: 'Tech Solutions', address: {...}, employees: 100};"
+);
 console.log("Type of company:", typeof company, ", Value:", company);
 // output: Type of company: object , Value: [object Object]
 
@@ -134,7 +144,7 @@ console.log("Country:", company.address.country); // Fictionland
 
 // Modifying object properties
 company.employees = 120;
-console.log("Updated number of employees:", company.employees); // 120  
+console.log("Updated number of employees:", company.employees); // 120
 
 // Deleting object properties
 delete company.address;
@@ -142,15 +152,14 @@ console.log("After deleting address property, company object:", company);
 // output: After deleting address property, company object: {name: "Tech Solutions", employees: 120}
 
 // Checking if a property exists in an object
-console.log("Does 'name' property exist in company?", 'name' in company); // true
-console.log("Does 'address' property exist in company?", 'address' in company); // false
+console.log("Does 'name' property exist in company?", "name" in company); // true
+console.log("Does 'address' property exist in company?", "address" in company); // false
 
 // Iterating over object properties
 console.log("Iterating over company object properties:");
 for (let key in company) {
-    console.log(key + ": " + company[key]);
+  console.log(key + ": " + company[key]);
 }
-// output: 
+// output:
 // name: Tech Solutions
 // employees: 120
-
