@@ -19,6 +19,11 @@ console.log("person2:", person2);
 console.log("Are person1 and person2 equal?", person1 === person2); 
 // output: Are person1 and person2 equal? false
 
+console.log("Are person1 and person2's ages equal?", person1.age == person2.age);
+// output: true
+console.log("Are person1 and person2's names equal?", person1.name == person2.name);
+// output: true
+
 const array1 = [1, 2, 3];
 const array2 = [1, 2, 3];
 
@@ -27,6 +32,13 @@ console.log("array1:", array1);
 console.log("array2:", array2);
 console.log("Are array1 and array2 equal?", array1 === array2); 
 // output: Are array1 and array2 equal? false
+
+console.log("Are array1 and array2's first elements equal?", array1[0] == array2[0]);
+// output: true
+console.log("Are array1 and array2's second elements equal?", array1[1] == array2[1]);
+// output: true
+console.log("Are array1 and array2's third elements equal?", array1[2] == array2[2]);
+// output: true
 
 // Explanation:
 // In JavaScript, both arrays and objects are reference types. 
